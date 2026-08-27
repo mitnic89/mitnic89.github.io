@@ -1,194 +1,295 @@
-/* ------------------------------
-   GENERAL
---------------------------------*/
+/* =========================================
+   BASIC SETUP
+========================================= */
 
 * {
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.7;
-    color: #26332f;
     background: #f4f1e8;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #26332f;
+    overflow: hidden;
 }
 
 
-/* ------------------------------
-   HEADER
---------------------------------*/
+/* =========================================
+   THE UNIVERSE
+========================================= */
 
-header {
-    padding: 90px 20px 70px;
-    text-align: center;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.5) 2px, transparent 2px),
-        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.4) 2px, transparent 2px),
-        #315c4c;
-    background-size: 35px 35px;
-    color: white;
-}
+.universe {
+    position: relative;
 
-header h1 {
-    margin: 0;
-    font-size: clamp(2.2rem, 6vw, 4.5rem);
-    letter-spacing: -2px;
-}
-
-header p {
-    max-width: 650px;
-    margin: 20px auto 0;
-    font-size: 1.2rem;
-    opacity: 0.9;
-}
-
-
-/* ------------------------------
-   NAVIGATION
---------------------------------*/
-
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    width: 100vw;
+    height: 100vh;
 
     display: flex;
+    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
 
-    padding: 14px 20px;
-
-    background: rgba(244, 241, 232, 0.95);
-    border-bottom: 1px solid #d6d0c2;
-}
-
-nav a {
-    color: #315c4c;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 8px 14px;
-    border-radius: 20px;
-}
-
-nav a:hover {
-    background: #dce8df;
+    perspective: 1200px;
 }
 
 
-/* ------------------------------
-   MAIN CONTENT
---------------------------------*/
+/* =========================================
+   ORBIT
+========================================= */
 
-main {
-    max-width: 1000px;
-    margin: auto;
-    padding: 60px 20px;
+.orbit {
+    position: absolute;
+
+    width: min(900px, 90vw);
+    height: 360px;
+
+    left: 50%;
+    top: 50%;
+
+    border: 2px solid rgba(49, 92, 76, 0.25);
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        rotateX(65deg);
+
+    transform-style: preserve-3d;
+
+    animation: orbit 35s linear infinite;
 }
 
-section {
-    margin-bottom: 70px;
-}
 
-h2 {
-    color: #315c4c;
-    font-size: 2.2rem;
-    margin-bottom: 25px;
-}
+/* =========================================
+   ORBITING BUTTONS
+========================================= */
 
-h3 {
+.planet {
+    position: absolute;
+
+    width: 140px;
+    height: 140px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #fffdf7;
+
+    border: 5px solid #315c4c;
+
     color: #26332f;
-    margin-bottom: 8px;
-}
 
-p {
-    max-width: 750px;
-}
+    text-decoration: none;
 
-
-/* ------------------------------
-   PROJECT CARDS
---------------------------------*/
-
-section#stem h3,
-section#workshops h3,
-section#digital h3 {
-    background: white;
-    border-left: 6px solid #e39b42;
-    padding: 20px 24px;
-    margin-top: 30px;
-    margin-bottom: 0;
-    border-radius: 8px 8px 0 0;
-}
-
-section#stem h3 + p,
-section#workshops h3 + p,
-section#digital h3 + p {
-    background: white;
-    padding: 0 24px 24px;
-    margin-top: 0;
-    border-radius: 0 0 8px 8px;
-}
-
-
-/* ------------------------------
-   LINKS
---------------------------------*/
-
-a {
-    color: #287a68;
-}
-
-a:hover {
-    color: #e07a35;
-}
-
-
-/* ------------------------------
-   FOOTER
---------------------------------*/
-
-footer {
     text-align: center;
-    padding: 35px 20px;
-    background: #26332f;
-    color: white;
+
+    font-size: 0.9rem;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 8px 20px rgba(38, 51, 47, 0.15);
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 
-/* ------------------------------
+/* =========================================
+   BUTTON POSITIONS
+========================================= */
+
+.about {
+    top: -70px;
+    left: 90px;
+
+    border-color: #315c4c;
+}
+
+.digital {
+    top: 110px;
+    left: -70px;
+
+    border-color: #287a68;
+}
+
+.stem {
+    bottom: -70px;
+    left: 90px;
+
+    border-color: #e39b42;
+}
+
+.workshops {
+    top: 110px;
+    right: -70px;
+
+    border-color: #d66b4c;
+}
+
+.certificates {
+    top: -70px;
+    right: 90px;
+
+    border-color: #7967a8;
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.planet:hover {
+    transform: scale(1.2);
+
+    box-shadow:
+        0 15px 35px rgba(38, 51, 47, 0.25);
+
+    background: white;
+
+    z-index: 100;
+}
+
+
+/* =========================================
+   PAUSE ORBIT
+========================================= */
+
+.orbit.paused {
+    animation-play-state: paused;
+}
+
+
+/* =========================================
+   YOU
+========================================= */
+
+.centre {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 50;
+
+    text-align: center;
+}
+
+
+/* Your PNG */
+
+.centre img {
+    display: block;
+
+    width: 270px;
+    max-width: 30vw;
+
+    margin: 0 auto;
+
+    filter:
+        drop-shadow(
+            0 12px 18px rgba(38, 51, 47, 0.2)
+        );
+}
+
+
+/* Your name */
+
+.centre h1 {
+    margin: 5px 0 0;
+
+    font-size: 1.7rem;
+
+    letter-spacing: -1px;
+}
+
+
+/* =========================================
+   ORBIT ANIMATION
+========================================= */
+
+@keyframes orbit {
+
+    from {
+
+        transform:
+            translate(-50%, -50%)
+            rotateX(65deg)
+            rotateZ(0deg);
+
+    }
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotateX(65deg)
+            rotateZ(360deg);
+
+    }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .orbit {
+        animation: none;
+    }
+
+}
+
+
+/* =========================================
    MOBILE
---------------------------------*/
+========================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
-    header {
-        padding: 65px 20px 50px;
+    body {
+        overflow: auto;
     }
 
-    header h1 {
-        letter-spacing: -1px;
+    .universe {
+        min-height: 800px;
+        height: 100vh;
+
+        transform: scale(0.8);
     }
 
-    nav {
-        gap: 3px;
+    .orbit {
+        width: 650px;
+        height: 300px;
     }
 
-    nav a {
-        font-size: 0.9rem;
-        padding: 7px 9px;
+    .planet {
+        width: 110px;
+        height: 110px;
+
+        font-size: 0.72rem;
     }
 
-    main {
-        padding: 40px 16px;
+    .centre img {
+        width: 220px;
+        max-width: 50vw;
     }
 
-    h2 {
-        font-size: 1.8rem;
-    }
 }
