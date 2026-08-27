@@ -1,0 +1,194 @@
+/* ------------------------------
+   GENERAL
+--------------------------------*/
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+    color: #26332f;
+    background: #f4f1e8;
+}
+
+
+/* ------------------------------
+   HEADER
+--------------------------------*/
+
+header {
+    padding: 90px 20px 70px;
+    text-align: center;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.5) 2px, transparent 2px),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.4) 2px, transparent 2px),
+        #315c4c;
+    background-size: 35px 35px;
+    color: white;
+}
+
+header h1 {
+    margin: 0;
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    letter-spacing: -2px;
+}
+
+header p {
+    max-width: 650px;
+    margin: 20px auto 0;
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+
+/* ------------------------------
+   NAVIGATION
+--------------------------------*/
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    padding: 14px 20px;
+
+    background: rgba(244, 241, 232, 0.95);
+    border-bottom: 1px solid #d6d0c2;
+}
+
+nav a {
+    color: #315c4c;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 20px;
+}
+
+nav a:hover {
+    background: #dce8df;
+}
+
+
+/* ------------------------------
+   MAIN CONTENT
+--------------------------------*/
+
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+section {
+    margin-bottom: 70px;
+}
+
+h2 {
+    color: #315c4c;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+}
+
+h3 {
+    color: #26332f;
+    margin-bottom: 8px;
+}
+
+p {
+    max-width: 750px;
+}
+
+
+/* ------------------------------
+   PROJECT CARDS
+--------------------------------*/
+
+section#stem h3,
+section#workshops h3,
+section#digital h3 {
+    background: white;
+    border-left: 6px solid #e39b42;
+    padding: 20px 24px;
+    margin-top: 30px;
+    margin-bottom: 0;
+    border-radius: 8px 8px 0 0;
+}
+
+section#stem h3 + p,
+section#workshops h3 + p,
+section#digital h3 + p {
+    background: white;
+    padding: 0 24px 24px;
+    margin-top: 0;
+    border-radius: 0 0 8px 8px;
+}
+
+
+/* ------------------------------
+   LINKS
+--------------------------------*/
+
+a {
+    color: #287a68;
+}
+
+a:hover {
+    color: #e07a35;
+}
+
+
+/* ------------------------------
+   FOOTER
+--------------------------------*/
+
+footer {
+    text-align: center;
+    padding: 35px 20px;
+    background: #26332f;
+    color: white;
+}
+
+
+/* ------------------------------
+   MOBILE
+--------------------------------*/
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 65px 20px 50px;
+    }
+
+    header h1 {
+        letter-spacing: -1px;
+    }
+
+    nav {
+        gap: 3px;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+        padding: 7px 9px;
+    }
+
+    main {
+        padding: 40px 16px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+}
