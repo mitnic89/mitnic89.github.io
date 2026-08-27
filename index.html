@@ -1,101 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Digital & STEM Education Portfolio</title>
+
+    <title>Your Name | Portfolio</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>Digital & STEM Education Portfolio</h1>
-        <p>Community education • Digital literacy • STEM • Emerging technology</p>
-    </header>
+    <main class="universe">
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#digital">Digital Literacy</a>
-        <a href="#stem">STEM Projects</a>
-        <a href="#workshops">Workshop Ideas</a>
-        <a href="#contact">Contact</a>
-    </nav>
+        <!-- The horizontal orbit -->
+        <div class="orbit">
 
-    <main>
+            <a href="about.html" class="planet about">
+                ABOUT
+            </a>
 
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                I am a community educator with experience in digital literacy,
-                science, technology and environmental education.
-            </p>
+            <a href="digital.html" class="planet digital">
+                DIGITAL<br>LITERACY
+            </a>
 
-            <p>
-                I enjoy designing practical, accessible learning experiences
-                that help people explore technology and the world around them.
-            </p>
-        </section>
+            <a href="stem.html" class="planet stem">
+                STEM<br>PROJECTS
+            </a>
 
-        <section id="digital">
-            <h2>Digital Literacy</h2>
+            <a href="workshops.html" class="planet workshops">
+                WORKSHOP<br>IDEAS
+            </a>
 
-            <h3>Community Digital Literacy Education</h3>
-            <p>
-                Designing and delivering digital literacy lessons for adult
-                learners, including Microsoft Word, Excel, PowerPoint,
-                web browsers and everyday digital skills.
-            </p>
-        </section>
+            <a href="certificates.html" class="planet certificates">
+                CERTIFICATES<br>&amp; COURSES
+            </a>
 
-        <section id="stem">
-            <h2>STEM Projects</h2>
+        </div>
 
-            <h3>Arduino Clap-Activated Lamp</h3>
-            <p>
-                A personal electronics and programming project using an
-                Arduino Uno to create a clap-activated lamp.
-            </p>
 
-            <h3>Microscope Workshop</h3>
-            <p>
-                A community workshop exploring plants and seeds using
-                microscopy. Participants examined seeds at high magnification
-                and compared their structures.
-            </p>
-        </section>
+        <!-- You in the centre -->
+        <div class="centre">
 
-        <section id="workshops">
-            <h2>STEM Workshop Ideas</h2>
+            <img src="me.png" alt="Your Name">
 
-            <h3>Seeds Under the Microscope</h3>
-            <p>
-                A hands-on STEM activity where participants investigate
-                different seeds using microscopes and learn how their
-                structures can help identify plants.
-            </p>
+            <h1>Your Name</h1>
 
-            <h3>Introduction to Arduino</h3>
-            <p>
-                An introductory electronics activity using low-voltage
-                components, LEDs and simple sensors to explore programming
-                and circuits.
-            </p>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>
-                Interested in community digital literacy, STEM education
-                or collaborative projects?
-            </p>
-        </section>
+        </div>
 
     </main>
 
-    <footer>
-        <p>&copy; 2026 Your Name</p>
-    </footer>
+
+    <script>
+
+        const orbit = document.querySelector(".orbit");
+        const planets = document.querySelectorAll(".planet");
+
+        planets.forEach(planet => {
+
+            planet.addEventListener("mouseenter", () => {
+                orbit.classList.add("paused");
+            });
+
+            planet.addEventListener("mouseleave", () => {
+                orbit.classList.remove("paused");
+            });
+
+        });
+
+    </script>
 
 </body>
+
 </html>
