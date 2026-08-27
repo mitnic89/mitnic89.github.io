@@ -1,6 +1,6 @@
-/* =========================================
-   BASIC SETUP
-========================================= */
+/* ==============================
+   RESET
+============================== */
 
 * {
     box-sizing: border-box;
@@ -21,9 +21,9 @@ body {
 }
 
 
-/* =========================================
-   THE UNIVERSE
-========================================= */
+/* ==============================
+   MAIN STAGE
+============================== */
 
 .universe {
     position: relative;
@@ -34,47 +34,41 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    perspective: 1200px;
 }
 
 
-/* =========================================
-   ORBIT
-========================================= */
+/* ==============================
+   ORBIT RING
+============================== */
 
 .orbit {
     position: absolute;
 
-    width: min(900px, 90vw);
-    height: 360px;
+    width: min(850px, 80vw);
+    height: min(420px, 55vh);
 
     left: 50%;
     top: 50%;
+
+    transform: translate(-50%, -50%);
 
     border: 2px solid rgba(49, 92, 76, 0.25);
 
     border-radius: 50%;
 
-    transform:
-        translate(-50%, -50%)
-        rotateX(65deg);
-
-    transform-style: preserve-3d;
-
-    animation: orbit 35s linear infinite;
+    animation: spin 40s linear infinite;
 }
 
 
-/* =========================================
-   ORBITING BUTTONS
-========================================= */
+/* ==============================
+   BUTTONS
+============================== */
 
 .planet {
     position: absolute;
 
-    width: 140px;
-    height: 140px;
+    width: 125px;
+    height: 125px;
 
     display: flex;
     align-items: center;
@@ -84,98 +78,74 @@ body {
 
     background: #fffdf7;
 
-    border: 5px solid #315c4c;
-
     color: #26332f;
 
     text-decoration: none;
 
     text-align: center;
 
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: bold;
 
     letter-spacing: 1px;
 
-    box-shadow:
-        0 8px 20px rgba(38, 51, 47, 0.15);
+    border: 5px solid #315c4c;
 
-    transform-style: preserve-3d;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+    transition: transform 0.25s ease;
 }
 
 
-/* =========================================
-   BUTTON POSITIONS
-========================================= */
+/* positions */
 
 .about {
-    top: -70px;
-    left: 90px;
-
+    top: -60px;
+    left: 80px;
     border-color: #315c4c;
 }
 
 .digital {
-    top: 110px;
-    left: -70px;
-
+    top: 145px;
+    left: -62px;
     border-color: #287a68;
 }
 
 .stem {
-    bottom: -70px;
-    left: 90px;
-
+    bottom: -60px;
+    left: 80px;
     border-color: #e39b42;
 }
 
 .workshops {
-    top: 110px;
-    right: -70px;
-
+    top: 145px;
+    right: -62px;
     border-color: #d66b4c;
 }
 
 .certificates {
-    top: -70px;
-    right: 90px;
-
+    top: -60px;
+    right: 80px;
     border-color: #7967a8;
 }
 
 
-/* =========================================
+/* ==============================
    HOVER
-========================================= */
+============================== */
 
 .planet:hover {
-    transform: scale(1.2);
-
-    box-shadow:
-        0 15px 35px rgba(38, 51, 47, 0.25);
-
-    background: white;
-
-    z-index: 100;
+    transform: scale(1.15);
 }
 
-
-/* =========================================
-   PAUSE ORBIT
-========================================= */
-
-.orbit.paused {
+.orbit:has(.planet:hover) {
     animation-play-state: paused;
 }
 
 
-/* =========================================
+/* ==============================
    YOU
-========================================= */
+============================== */
 
 .centre {
     position: absolute;
@@ -185,82 +155,64 @@ body {
 
     transform: translate(-50%, -50%);
 
-    z-index: 50;
+    z-index: 10;
 
     text-align: center;
+
+    width: 280px;
 }
 
 
-/* Your PNG */
+/* Image */
 
 .centre img {
     display: block;
 
-    width: 270px;
-    max-width: 30vw;
+    width: 220px;
+    height: auto;
+
+    max-width: 220px;
+    max-height: 350px;
+
+    object-fit: contain;
 
     margin: 0 auto;
-
-    filter:
-        drop-shadow(
-            0 12px 18px rgba(38, 51, 47, 0.2)
-        );
 }
 
 
-/* Your name */
+/* Name */
 
 .centre h1 {
     margin: 5px 0 0;
 
-    font-size: 1.7rem;
-
-    letter-spacing: -1px;
+    font-size: 1.5rem;
 }
 
 
-/* =========================================
-   ORBIT ANIMATION
-========================================= */
+/* ==============================
+   ROTATION
+============================== */
 
-@keyframes orbit {
+@keyframes spin {
 
     from {
-
         transform:
             translate(-50%, -50%)
-            rotateX(65deg)
-            rotateZ(0deg);
-
+            rotate(0deg);
     }
 
     to {
-
         transform:
             translate(-50%, -50%)
-            rotateX(65deg)
-            rotateZ(360deg);
-
-    }
-}
-
-
-/* =========================================
-   REDUCED MOTION
-========================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .orbit {
-        animation: none;
+            rotate(360deg);
     }
 
 }
 
 
-/* =========================================
+/* ==============================
    MOBILE
-========================================= */
+============================== */
 
 @media (max-width: 700px) {
 
@@ -269,27 +221,30 @@ body {
     }
 
     .universe {
-        min-height: 800px;
-        height: 100vh;
-
-        transform: scale(0.8);
+        min-height: 750px;
     }
 
     .orbit {
         width: 650px;
-        height: 300px;
+        height: 380px;
     }
 
     .planet {
-        width: 110px;
-        height: 110px;
+        width: 105px;
+        height: 105px;
+        font-size: 0.7rem;
+    }
 
-        font-size: 0.72rem;
+    .centre {
+        width: 220px;
     }
 
     .centre img {
-        width: 220px;
-        max-width: 50vw;
+        width: 170px;
+    }
+
+    .centre h1 {
+        font-size: 1.2rem;
     }
 
 }
