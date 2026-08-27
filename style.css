@@ -251,14 +251,14 @@ body {
     0% {
         transform:
             rotate(0deg)
-            translateX(270px)
+            translateX(250px)
             rotate(0deg);
     }
 
     100% {
         transform:
             rotate(360deg)
-            translateX(270px)
+            translateX(250px)
             rotate(-360deg);
     }
 
