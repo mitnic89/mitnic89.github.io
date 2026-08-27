@@ -5,42 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Masina "Tippi" Nina Coulter | Portfolio</title>
+    <title>Your Name | Portfolio</title>
 
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 
 <body>
 
     <main class="universe">
 
-        <!-- The horizontal orbit -->
-        <div class="orbit">
+        <!-- Fixed horizontal orbit -->
+        <div class="orbit-line"></div>
 
-            <a href="about.html" class="planet about">
-                ABOUT
-            </a>
 
-            <a href="digital.html" class="planet digital">
-                DIGITAL<br>LITERACY
-            </a>
-
-            <a href="stem.html" class="planet stem">
-                STEM<br>PROJECTS
-            </a>
-
+        <!-- Orbiting topics -->
+        <div class="orbiting-object object-1">
             <a href="workshops.html" class="planet workshops">
                 WORKSHOP<br>IDEAS
             </a>
+        </div>
 
+        <div class="orbiting-object object-2">
+            <a href="digital.html" class="planet digital">
+                DIGITAL<br>LITERACY
+            </a>
+        </div>
+
+        <div class="orbiting-object object-3">
+            <a href="stem.html" class="planet stem">
+                STEM<br>PROJECTS
+            </a>
+        </div>
+
+        <div class="orbiting-object object-4">
+            <a href="about.html" class="planet about">
+                ABOUT
+            </a>
+        </div>
+
+        <div class="orbiting-object object-5">
             <a href="certificates.html" class="planet certificates">
                 CERTIFICATES<br>&amp; COURSES
             </a>
-
         </div>
 
 
-        <!-- You in the centre -->
+        <!-- You -->
         <div class="centre">
 
             <img src="me.png" alt="Your Name">
@@ -54,17 +64,20 @@
 
     <script>
 
-        const orbit = document.querySelector(".orbit");
-        const planets = document.querySelectorAll(".planet");
+        const objects = document.querySelectorAll(".orbiting-object");
 
-        planets.forEach(planet => {
+        objects.forEach(object => {
 
-            planet.addEventListener("mouseenter", () => {
-                orbit.classList.add("paused");
+            object.addEventListener("mouseenter", () => {
+                objects.forEach(item => {
+                    item.classList.add("paused");
+                });
             });
 
-            planet.addEventListener("mouseleave", () => {
-                orbit.classList.remove("paused");
+            object.addEventListener("mouseleave", () => {
+                objects.forEach(item => {
+                    item.classList.remove("paused");
+                });
             });
 
         });
