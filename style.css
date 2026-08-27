@@ -44,8 +44,8 @@ body {
 .orbit-line {
     position: absolute;
 
-    width: 620px;
-    height: 620px;
+    width: 540px;
+    height: 540px;
 
     left: 50%;
     top: 50%;
@@ -251,14 +251,14 @@ body {
     0% {
         transform:
             rotate(0deg)
-            translateX(310px)
+            translateX(270px)
             rotate(0deg);
     }
 
     100% {
         transform:
             rotate(360deg)
-            translateX(310px)
+            translateX(270px)
             rotate(-360deg);
     }
 
