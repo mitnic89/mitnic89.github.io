@@ -1,7 +1,6 @@
-/* ==============================
-   RESET
-============================== */
-
+/* =========================================
+   BASIC SETUP
+========================================= */
 
 * {
     box-sizing: border-box;
@@ -9,9 +8,9 @@
 
 html,
 body {
-    margin: 0;
     width: 100%;
     height: 100%;
+    margin: 0;
 }
 
 body {
@@ -22,9 +21,9 @@ body {
 }
 
 
-/* ==============================
+/* =========================================
    MAIN STAGE
-============================== */
+========================================= */
 
 .universe {
     position: relative;
@@ -35,41 +34,95 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    perspective: 1000px;
 }
 
 
-/* ==============================
-   ORBIT RING
-============================== */
+/* =========================================
+   FIXED ORBIT LINE
+========================================= */
 
-.orbit {
+.orbit-line {
     position: absolute;
 
-    width: min(850px, 80vw);
-    height: min(420px, 55vh);
+    width: min(900px, 85vw);
+    height: 330px;
 
     left: 50%;
     top: 50%;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%)
+        rotateX(68deg);
 
-    border: 2px solid rgba(49, 92, 76, 0.25);
+    border: 2px solid rgba(49, 92, 76, 0.3);
 
     border-radius: 50%;
-
-    animation: spin 40s linear infinite;
 }
 
 
-/* ==============================
-   BUTTONS
-============================== */
+/* =========================================
+   ORBITING OBJECT
+========================================= */
 
-.planet {
+.orbiting-object {
     position: absolute;
 
-    width: 125px;
-    height: 125px;
+    width: 140px;
+    height: 140px;
+
+    left: 50%;
+    top: 50%;
+
+    margin-left: -70px;
+    margin-top: -70px;
+
+    transform-origin: 0 0;
+
+    animation: orbit 30s linear infinite;
+
+    z-index: 5;
+}
+
+
+/* =========================================
+   FIVE ORBIT POSITIONS
+========================================= */
+
+/*
+   Each object starts at a different point
+   around the orbit.
+*/
+
+.object-1 {
+    animation-delay: 0s;
+}
+
+.object-2 {
+    animation-delay: -6s;
+}
+
+.object-3 {
+    animation-delay: -12s;
+}
+
+.object-4 {
+    animation-delay: -18s;
+}
+
+.object-5 {
+    animation-delay: -24s;
+}
+
+
+/* =========================================
+   PLANETS
+========================================= */
+
+.planet {
+    width: 140px;
+    height: 140px;
 
     display: flex;
     align-items: center;
@@ -92,63 +145,68 @@ body {
 
     border: 5px solid #315c4c;
 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    box-shadow:
+        0 8px 20px rgba(38, 51, 47, 0.15);
 
-    transition: transform 0.25s ease;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 
-/* positions */
+/* Individual colours */
 
-.about {
-    top: -60px;
-    left: 80px;
-    border-color: #315c4c;
+.workshops {
+    border-color: #d66b4c;
 }
 
 .digital {
-    top: 145px;
-    left: -62px;
     border-color: #287a68;
 }
 
 .stem {
-    bottom: -60px;
-    left: 80px;
     border-color: #e39b42;
 }
 
-.workshops {
-    top: 145px;
-    right: -62px;
-    border-color: #d66b4c;
+.about {
+    border-color: #315c4c;
 }
 
 .certificates {
-    top: -60px;
-    right: 80px;
     border-color: #7967a8;
 }
 
 
-/* ==============================
+/* =========================================
    HOVER
-============================== */
+========================================= */
 
 .planet:hover {
+
     transform: scale(1.15);
+
+    box-shadow:
+        0 15px 35px rgba(38, 51, 47, 0.3);
+
+    background: white;
 }
 
-.orbit:has(.planet:hover) {
+
+/* =========================================
+   PAUSE
+========================================= */
+
+.orbiting-object.paused {
     animation-play-state: paused;
 }
 
 
-/* ==============================
-   YOU
-============================== */
+/* =========================================
+   YOU IN THE CENTRE
+========================================= */
 
 .centre {
+
     position: absolute;
 
     left: 50%;
@@ -156,7 +214,7 @@ body {
 
     transform: translate(-50%, -50%);
 
-    z-index: 10;
+    z-index: 50;
 
     text-align: center;
 
@@ -164,88 +222,136 @@ body {
 }
 
 
-/* Image */
+/* Your image */
 
 .centre img {
+
     display: block;
 
     width: 220px;
+
     height: auto;
 
     max-width: 220px;
+
     max-height: 350px;
 
     object-fit: contain;
 
     margin: 0 auto;
+
+    filter:
+        drop-shadow(
+            0 12px 18px rgba(38, 51, 47, 0.2)
+        );
 }
 
 
-/* Name */
+/* Your name */
 
 .centre h1 {
+
     margin: 5px 0 0;
 
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+
+    letter-spacing: -1px;
 }
 
 
-/* ==============================
-   ROTATION
-============================== */
+/* =========================================
+   ORBIT ANIMATION
+========================================= */
 
-@keyframes spin {
+@keyframes orbit {
 
-    from {
+    0% {
         transform:
-            translate(-50%, -50%)
+            rotate(0deg)
+            translateX(450px)
             rotate(0deg);
     }
 
-    to {
+    25% {
         transform:
-            translate(-50%, -50%)
-            rotate(360deg);
+            rotate(90deg)
+            translateX(450px)
+            rotate(-90deg);
+    }
+
+    50% {
+        transform:
+            rotate(180deg)
+            translateX(450px)
+            rotate(-180deg);
+    }
+
+    75% {
+        transform:
+            rotate(270deg)
+            translateX(450px)
+            rotate(-270deg);
+    }
+
+    100% {
+        transform:
+            rotate(360deg)
+            translateX(450px)
+            rotate(-360deg);
     }
 
 }
 
 
-/* ==============================
+/* =========================================
    MOBILE
-============================== */
+========================================= */
 
 @media (max-width: 700px) {
 
     body {
-        overflow: auto;
+        overflow: hidden;
     }
 
-    .universe {
-        min-height: 750px;
-    }
+    .orbit-line {
 
-    .orbit {
         width: 650px;
-        height: 380px;
+
+        height: 280px;
+
+    }
+
+    .orbiting-object {
+
+        width: 105px;
+        height: 105px;
+
+        margin-left: -52px;
+        margin-top: -52px;
+
     }
 
     .planet {
+
         width: 105px;
         height: 105px;
-        font-size: 0.7rem;
-    }
 
-    .centre {
-        width: 220px;
+        font-size: 0.68rem;
+
+        border-width: 4px;
+
     }
 
     .centre img {
+
         width: 170px;
+
     }
 
     .centre h1 {
+
         font-size: 1.2rem;
+
     }
 
 }
