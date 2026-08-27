@@ -22,7 +22,7 @@ body {
 
 
 /* =========================================
-   STAGE
+   MAIN AREA
 ========================================= */
 
 .universe {
@@ -44,53 +44,76 @@ body {
 .orbit-line {
     position: absolute;
 
-    width: 560px;
-    height: 360px;
+    width: 620px;
+    height: 620px;
 
     left: 50%;
     top: 50%;
 
     transform: translate(-50%, -50%);
 
-    border: 2px solid rgba(49, 92, 76, 0.3);
+    border: 2px solid rgba(49, 92, 76, 0.25);
 
     border-radius: 50%;
 }
 
 
 /* =========================================
-   INVISIBLE ROTATING RING
+   ORBITING BALLS
 ========================================= */
 
 .orbiting-object {
 
     position: absolute;
 
-    width: 0;
-    height: 0;
+    width: 120px;
+    height: 120px;
 
     left: 50%;
     top: 50%;
 
-    animation: orbit 30s linear infinite;
+    margin-left: -60px;
+    margin-top: -60px;
+
+    animation: circle 30s linear infinite;
 
     z-index: 5;
 }
 
 
 /* =========================================
-   EACH BALL
+   SPACING
+========================================= */
+
+.object-1 {
+    animation-delay: 0s;
+}
+
+.object-2 {
+    animation-delay: -6s;
+}
+
+.object-3 {
+    animation-delay: -12s;
+}
+
+.object-4 {
+    animation-delay: -18s;
+}
+
+.object-5 {
+    animation-delay: -24s;
+}
+
+
+/* =========================================
+   TOPIC BALLS
 ========================================= */
 
 .planet {
 
-    position: absolute;
-
-    width: 110px;
-    height: 110px;
-
-    left: -55px;
-    top: -55px;
+    width: 120px;
+    height: 120px;
 
     display: flex;
     align-items: center;
@@ -106,7 +129,7 @@ body {
 
     text-align: center;
 
-    font-size: 0.75rem;
+    font-size: 0.8rem;
 
     font-weight: bold;
 
@@ -116,37 +139,12 @@ body {
 
     box-shadow:
         0 8px 20px rgba(38, 51, 47, 0.15);
+
+    transition: transform 0.25s ease;
 }
 
 
-/* =========================================
-   DIFFERENT STARTING ANGLES
-========================================= */
-
-.object-1 {
-    transform: rotate(0deg) translateX(280px);
-}
-
-.object-2 {
-    transform: rotate(72deg) translateX(280px);
-}
-
-.object-3 {
-    transform: rotate(144deg) translateX(280px);
-}
-
-.object-4 {
-    transform: rotate(216deg) translateX(280px);
-}
-
-.object-5 {
-    transform: rotate(288deg) translateX(280px);
-}
-
-
-/* =========================================
-   COLOURS
-========================================= */
+/* Colours */
 
 .workshops {
     border-color: #d66b4c;
@@ -175,11 +173,19 @@ body {
 
 .planet:hover {
 
-    transform:
-        scale(1.15)
-        rotate(0deg)
-        translateX(280px);
+    transform: scale(1.15);
 
+    box-shadow:
+        0 15px 35px rgba(38, 51, 47, 0.3);
+}
+
+
+/* =========================================
+   PAUSE
+========================================= */
+
+.orbiting-object.paused {
+    animation-play-state: paused;
 }
 
 
@@ -199,6 +205,8 @@ body {
     z-index: 50;
 
     text-align: center;
+
+    width: 260px;
 }
 
 
@@ -206,13 +214,13 @@ body {
 
     display: block;
 
-    width: 200px;
+    width: 220px;
 
     height: auto;
 
-    max-width: 200px;
+    max-width: 220px;
 
-    max-height: 320px;
+    max-height: 350px;
 
     object-fit: contain;
 
@@ -235,77 +243,74 @@ body {
 
 
 /* =========================================
-   ANIMATION
+   CIRCLE ANIMATION
 ========================================= */
 
-@keyframes orbit {
+@keyframes circle {
 
-    from {
-
+    0% {
         transform:
-            translate(-50%, -50%)
+            rotate(0deg)
+            translateX(310px)
             rotate(0deg);
-
     }
 
-    to {
-
+    100% {
         transform:
-            translate(-50%, -50%)
-            rotate(360deg);
-
+            rotate(360deg)
+            translateX(310px)
+            rotate(-360deg);
     }
 
 }
 
 
 /* =========================================
-   MOBILE
+   SMALLER SCREENS
 ========================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
 
     .orbit-line {
+        width: 500px;
+        height: 500px;
+    }
 
-        width: 450px;
-        height: 300px;
+    .orbiting-object {
+        width: 100px;
+        height: 100px;
 
+        margin-left: -50px;
+        margin-top: -50px;
     }
 
     .planet {
+        width: 100px;
+        height: 100px;
 
-        width: 90px;
-        height: 90px;
-
-        left: -45px;
-        top: -45px;
-
-        font-size: 0.6rem;
-
-    }
-
-    .object-1 {
-        transform: rotate(0deg) translateX(225px);
-    }
-
-    .object-2 {
-        transform: rotate(72deg) translateX(225px);
-    }
-
-    .object-3 {
-        transform: rotate(144deg) translateX(225px);
-    }
-
-    .object-4 {
-        transform: rotate(216deg) translateX(225px);
-    }
-
-    .object-5 {
-        transform: rotate(288deg) translateX(225px);
+        font-size: 0.65rem;
     }
 
     .centre img {
-        width: 160px;
+        width: 170px;
+    }
+
+    @keyframes circle {
+
+        0% {
+            transform:
+                rotate(0deg)
+                translateX(250px)
+                rotate(0deg);
+        }
+
+        100% {
+            transform:
+                rotate(360deg)
+                translateX(250px)
+                rotate(-360deg);
+        }
+
     }
 
 }
