@@ -377,5 +377,12 @@ body.home {
         }
 
     }
+   .about-image img {
+    width: 180px;
+    height: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
 
 }
