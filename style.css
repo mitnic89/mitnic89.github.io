@@ -1,5 +1,5 @@
 /* =========================================
-   BASIC SETUP
+   RESET
 ========================================= */
 
 * {
@@ -22,7 +22,7 @@ body {
 
 
 /* =========================================
-   MAIN STAGE
+   MAIN AREA
 ========================================= */
 
 .universe {
@@ -38,55 +38,51 @@ body {
 
 
 /* =========================================
-   FIXED ORBIT
+   FIXED ORBIT LINE
 ========================================= */
 
 .orbit-line {
     position: absolute;
 
-    width: min(900px, 85vw);
-    height: 330px;
+    width: 620px;
+    height: 620px;
 
     left: 50%;
     top: 50%;
 
     transform: translate(-50%, -50%);
 
-    border: 2px solid rgba(49, 92, 76, 0.3);
+    border: 2px solid rgba(49, 92, 76, 0.25);
 
     border-radius: 50%;
 }
 
 
 /* =========================================
-   ORBITING OBJECT
+   ORBITING BALLS
 ========================================= */
 
 .orbiting-object {
 
     position: absolute;
 
+    width: 120px;
+    height: 120px;
+
     left: 50%;
     top: 50%;
 
-    width: 140px;
-    height: 140px;
+    margin-left: -60px;
+    margin-top: -60px;
 
-    margin-left: -70px;
-    margin-top: -70px;
-
-    offset-path: ellipse(450px 165px at 0 0);
-
-    offset-rotate: 0deg;
-
-    animation: travel 30s linear infinite;
+    animation: circle 30s linear infinite;
 
     z-index: 5;
 }
 
 
 /* =========================================
-   STAGGER THE FIVE BALLS
+   SPACING
 ========================================= */
 
 .object-1 {
@@ -111,13 +107,13 @@ body {
 
 
 /* =========================================
-   PLANETS
+   TOPIC BALLS
 ========================================= */
 
 .planet {
 
-    width: 140px;
-    height: 140px;
+    width: 120px;
+    height: 120px;
 
     display: flex;
     align-items: center;
@@ -133,7 +129,7 @@ body {
 
     text-align: center;
 
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 
     font-weight: bold;
 
@@ -144,9 +140,7 @@ body {
     box-shadow:
         0 8px 20px rgba(38, 51, 47, 0.15);
 
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+    transition: transform 0.25s ease;
 }
 
 
@@ -183,8 +177,6 @@ body {
 
     box-shadow:
         0 15px 35px rgba(38, 51, 47, 0.3);
-
-    background: white;
 }
 
 
@@ -214,7 +206,7 @@ body {
 
     text-align: center;
 
-    width: 280px;
+    width: 260px;
 }
 
 
@@ -245,75 +237,79 @@ body {
 
     margin: 5px 0 0;
 
-    font-size: 1.6rem;
-
-    letter-spacing: -1px;
-}
-
-
-/* =========================================
-   THE ORBIT
-========================================= */
-
-@keyframes travel {
-
-    from {
-        offset-distance: 0%;
-    }
-
-    to {
-        offset-distance: 100%;
-    }
+    font-size: 1.5rem;
 
 }
 
 
 /* =========================================
-   MOBILE
+   CIRCLE ANIMATION
 ========================================= */
 
-@media (max-width: 700px) {
+@keyframes circle {
+
+    0% {
+        transform:
+            rotate(0deg)
+            translateX(310px)
+            rotate(0deg);
+    }
+
+    100% {
+        transform:
+            rotate(360deg)
+            translateX(310px)
+            rotate(-360deg);
+    }
+
+}
+
+
+/* =========================================
+   SMALLER SCREENS
+========================================= */
+
+@media (max-width: 800px) {
 
     .orbit-line {
-
-        width: 650px;
-
-        height: 280px;
-
+        width: 500px;
+        height: 500px;
     }
 
     .orbiting-object {
+        width: 100px;
+        height: 100px;
 
-        width: 105px;
-        height: 105px;
-
-        margin-left: -52px;
-        margin-top: -52px;
-
-        offset-path: ellipse(325px 140px at 0 0);
-
+        margin-left: -50px;
+        margin-top: -50px;
     }
 
     .planet {
+        width: 100px;
+        height: 100px;
 
-        width: 105px;
-        height: 105px;
-
-        font-size: 0.68rem;
-
-        border-width: 4px;
-
+        font-size: 0.65rem;
     }
 
     .centre img {
-
         width: 170px;
-
     }
 
-    .centre h1 {
+    @keyframes circle {
 
-        font-size: 1.2rem;
+        0% {
+            transform:
+                rotate(0deg)
+                translateX(250px)
+                rotate(0deg);
+        }
+
+        100% {
+            transform:
+                rotate(360deg)
+                translateX(250px)
+                rotate(-360deg);
+        }
 
     }
 
