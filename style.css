@@ -20,6 +20,8 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 
+    filter: contrast(1.15) saturate(1.1);
+
     font-family: Arial, Helvetica, sans-serif;
     color: #26332f;
     overflow: hidden;
@@ -54,7 +56,7 @@ body {
     position: absolute;
     inset: 0;
 
-    background: rgba(244, 241, 232, 0.22);
+    background: rgba(255, 255, 255, 0.08);
 
     z-index: -1;
 }
@@ -236,19 +238,6 @@ body {
     text-align: center;
 
     width: 260px;
-
-    padding: 18px;
-
-    border-radius: 30px;
-
-    background: rgba(255, 253, 247, 0.28);
-
-    backdrop-filter: blur(4px);
-
-    -webkit-backdrop-filter: blur(4px);
-
-    box-shadow:
-        0 10px 35px rgba(38, 51, 47, 0.12);
 }
 
 
@@ -285,24 +274,22 @@ body {
 
 .centre h1 {
 
-    display: inline-block;
-
     margin: 8px 0 0;
 
-    padding: 5px 14px;
+    font-size: 1.8rem;
 
-    border-radius: 20px;
+    font-weight: bold;
 
-    background: rgba(255, 253, 247, 0.65);
+    letter-spacing: 1px;
 
-    color: #26332f;
+    color: #ffffff;
 
-    font-size: 1.5rem;
-
-    letter-spacing: 0.5px;
-
-    box-shadow:
-        0 4px 12px rgba(38, 51, 47, 0.1);
+    text-shadow:
+        -2px -2px 0 #fff8ec,
+         2px -2px 0 #fff8ec,
+        -2px  2px 0 #fff8ec,
+         2px  2px 0 #fff8ec,
+         0    4px 12px rgba(38, 51, 47, 0.35);
 }
 
 
