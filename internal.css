@@ -1,0 +1,404 @@
+/* =========================================
+   INTERNAL PAGES — RESET
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background: #f4f1e8;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: #26332f;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   PAGE CONTAINER
+========================================= */
+
+.page {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 40px 30px 80px;
+}
+
+
+/* =========================================
+   BACK TO HOME
+========================================= */
+
+.back-link {
+    display: inline-block;
+
+    margin-bottom: 40px;
+
+    color: #315c4c;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    font-size: 0.95rem;
+
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: #d66b4c;
+}
+
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.page-header {
+    margin-bottom: 60px;
+
+    padding-bottom: 30px;
+
+    border-bottom: 2px solid rgba(49, 92, 76, 0.2);
+}
+
+.page-header h1 {
+    margin: 0 0 10px;
+
+    color: #315c4c;
+
+    font-size: clamp(2.5rem, 6vw, 4rem);
+
+    letter-spacing: 2px;
+}
+
+.page-header p {
+    margin: 0;
+
+    color: #5c6964;
+
+    font-size: 1.1rem;
+}
+
+
+/* =========================================
+   ABOUT INTRO
+========================================= */
+
+.about-intro {
+    display: grid;
+
+    grid-template-columns: 220px 1fr;
+
+    gap: 50px;
+
+    align-items: center;
+
+    margin-bottom: 70px;
+}
+
+
+/* =========================================
+   ABOUT IMAGE
+========================================= */
+
+.about-image {
+    text-align: center;
+}
+
+.about-image img {
+    display: block;
+
+    width: 180px;
+
+    height: auto;
+
+    max-width: 100%;
+
+    margin: 0 auto;
+
+    filter:
+        drop-shadow(
+            0 10px 18px rgba(38, 51, 47, 0.18)
+        );
+}
+
+
+/* =========================================
+   ABOUT TEXT
+========================================= */
+
+.about-text h2 {
+    margin-top: 0;
+
+    margin-bottom: 18px;
+
+    color: #315c4c;
+
+    font-size: 2rem;
+}
+
+.about-text p {
+    max-width: 700px;
+
+    margin-top: 0;
+
+    margin-bottom: 18px;
+
+    font-size: 1.05rem;
+}
+
+
+/* =========================================
+   GENERAL SECTIONS
+========================================= */
+
+.page section {
+    margin-bottom: 70px;
+}
+
+.page section h2 {
+    margin-top: 0;
+
+    margin-bottom: 25px;
+
+    color: #315c4c;
+
+    font-size: 2rem;
+}
+
+
+/* =========================================
+   EXPERIENCE TIMELINE
+========================================= */
+
+.timeline {
+    position: relative;
+
+    margin-left: 15px;
+
+    padding-left: 35px;
+
+    border-left: 3px solid #315c4c;
+}
+
+.timeline-item {
+    position: relative;
+
+    margin-bottom: 40px;
+}
+
+.timeline-item::before {
+    content: "";
+
+    position: absolute;
+
+    width: 14px;
+    height: 14px;
+
+    left: -44px;
+    top: 5px;
+
+    border-radius: 50%;
+
+    background: #e39b42;
+
+    border: 3px solid #f4f1e8;
+}
+
+.timeline-item h3 {
+    margin: 0 0 5px;
+
+    color: #26332f;
+
+    font-size: 1.25rem;
+}
+
+.timeline-item .date {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #287a68;
+
+    font-size: 0.9rem;
+
+    font-weight: bold;
+}
+
+.timeline-item p {
+    margin: 0;
+
+    color: #4f5c57;
+}
+
+
+/* =========================================
+   SKILLS
+========================================= */
+
+.skills {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+.skill {
+    padding: 10px 16px;
+
+    border-radius: 25px;
+
+    background: #fffdf7;
+
+    border: 2px solid #315c4c;
+
+    color: #26332f;
+
+    font-weight: bold;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================
+   EXPLORE LINKS
+========================================= */
+
+.link-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+
+    max-width: 700px;
+}
+
+.link-grid a {
+    display: block;
+
+    padding: 18px 22px;
+
+    background: #fffdf7;
+
+    border-left: 5px solid #315c4c;
+
+    border-radius: 6px;
+
+    color: #26332f;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 5px 15px rgba(38, 51, 47, 0.08);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.link-grid a:hover {
+    transform: translateX(5px);
+
+    box-shadow:
+        0 8px 20px rgba(38, 51, 47, 0.15);
+
+    color: #287a68;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    text-align: center;
+
+    padding: 35px 20px;
+
+    background: #26332f;
+
+    color: white;
+}
+
+footer p {
+    margin: 0 0 8px;
+}
+
+footer a {
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: #e39b42;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .page {
+        padding: 30px 20px 60px;
+    }
+
+    .about-intro {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+        text-align: center;
+    }
+
+    .about-image img {
+        width: 150px;
+    }
+
+    .about-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .timeline {
+        margin-left: 5px;
+
+        padding-left: 25px;
+    }
+
+    .timeline-item::before {
+        left: -34px;
+    }
+
+    .link-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
