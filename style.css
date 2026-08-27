@@ -14,6 +14,20 @@ body {
 }
 
 body {
+    background: #f4f1e8;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: #26332f;
+
+    margin: 0;
+}
+
+
+/* =========================================
+   HOMEPAGE BACKGROUND
+========================================= */
+
+body.home {
     background-image: url("background.jpg");
     background-size: cover;
     background-position: center;
@@ -22,11 +36,8 @@ body {
 
     filter: contrast(1.15) saturate(1.1);
 
-    font-family: Arial, Helvetica, sans-serif;
-    color: #26332f;
     overflow: hidden;
 }
-
 
 /* =========================================
    MAIN AREA
