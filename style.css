@@ -257,29 +257,24 @@ body.home {
 ========================================= */
 
 .centre img {
-
     display: block;
-
     width: 220px;
-
     height: auto;
-
     max-width: 220px;
-
     max-height: 350px;
-
     object-fit: contain;
-
     margin: 0 auto;
-   
-   outline: 2px solid #f7e6bc;
-
-    filter:
-        drop-shadow(
-            0 12px 18px rgba(38, 51, 47, 0.2)
-        );
+filter:
+    drop-shadow(-1.5px -1.5px 0 #f7e6bc)
+    drop-shadow(1.5px -1.5px 0 #f7e6bc)
+    drop-shadow(-1.5px 1.5px 0 #f7e6bc)
+    drop-shadow(1.5px 1.5px 0 #f7e6bc)
+    drop-shadow(-2px 0 0 #f7e6bc)
+    drop-shadow(2px 0 0 #f7e6bc)
+    drop-shadow(0 -2px 0 #f7e6bc)
+    drop-shadow(0 2px 0 #f7e6bc)
+    drop-shadow(0 12px 18px rgba(38, 51, 47, 0.2));
 }
-
 
 /* =========================================
    YOUR NAME
